@@ -7,7 +7,7 @@ import webbrowser
 import random
 import subprocess
 import os
-
+import google.generativeai as genai 
 #Logging configuration
 LOG_DIR = "logs"
 LOG_FILE_NAME = "application.log"
@@ -38,7 +38,7 @@ def speak(text):
     """This function converts text to voice
 
     Args:
-        text
+        text 
     returns:
         voice
     """
@@ -91,6 +91,17 @@ def play_music():
     except Exception as e:
         speak("No Music files in your directory.")
         logging.info(e)
+
+
+def gemini_model_response(user_input):
+    GEMINI_API_KEY = "YOUR_API_KEY"
+    genai.configure(api_key=GEMINI_API_KEY) #set configuration to use gemini api
+    model = genai.GenerativeModel("gemini-3.1-flash-lite")
+    prompt = f"Your name is JARVIS and act like JARVIS and Answere the  provided question in short, Question:{user_input}"
+    response = model.generate_content(prompt)
+    result = response.text
+
+    return result
 
 
 def  greeting():
@@ -210,7 +221,8 @@ while True:
         
 
     else:
-        speak("I'm sorry, I can't help you with that.")
-        logging.info("User asked for an unsupported command.")
+        response = gemini_model_response(query)
+        speak(response)
+        logging.info("User asked for advanced  questions.")
 
 

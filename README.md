@@ -36,27 +36,36 @@ This project uses speech recognition and text-to-speech(TTS) to provide a hands-
 
 1. Create a virtual environment
 
-```bash
-conda create -n jarvis python=3.11 -y
-```
+    ```bash
+    conda create -n jarvis python=3.11 -y
+    ```
 
 2. Activate virtual environment
 
-```bash
-conda activate jarvis 
-```
+    ```bash
+    conda activate jarvis 
+    ```
 
 3.  Install required packages
 
-```bash
-pip install -r requirements.txt
-```
+    ```bash
+    pip install -r requirements.txt
+    ```
 
 4. Run the JARVIS script
 
-```bash
-python jarvis.py
-```
+    ```bash
+    python jarvis.py
+    ```
+
+## For exe  file  conversion:
+    ```bash
+    pip install pyinstaller
+    ```
+
+    ```bash 
+    pyinstaller --onefile jarvis.py
+    ```
 
 ## 💻Author
 **Tawfica Bhuiyan**

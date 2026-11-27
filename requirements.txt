@@ -2,3 +2,6 @@ SpeechRecognition==3.15.0
 pyttsx3==2.90
 pyaudio
 wikipedia
+
+google-generativeai
+# google-genai
